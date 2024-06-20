@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var someValue = 'hello';
+        function outerFunc() {
+            console.log(this.someValue); // 첫번째 : ?, 두번째 : ?
+            this.innerFunc();
+        }
+        const obj = {
+            someValue: 'beautiful',
+            outerFunc,
+            innerFunc: function () {
+                console.log("hahahaha"); // 첫번째 : ?, 두번째 : ?
+            }
+        }
+        obj.outerFunc(); // 첫번째
+        outerFunc(); // 두번째
+        function innerFunc() {
+            console.log("innerFunc's this : ", this);
+        }
+    </script>
+</body>
+
+</html>

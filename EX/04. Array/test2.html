@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var 변수의 문제점3 - 선언, 초기화, 사용 순서가 정해져있지 않다.</title>
+</head>
+
+<body>
+    <script>
+        // 전역 실행문맥 생성. 전체 정의(name, init) 호이스팅
+        var name = 'Kai';
+        init(); // init 실행문맥 생성. 내부 정의(name, displayName) 호이스팅
+        function init() {
+            var name = "Steve";
+            function displayName() {
+                name = 'troll?'; // 주석 해제되면 호이스팅
+                console.log(name); // 현재 실행문맥 내에 정의된게 없으니 outer 로 chain
+                var name;
+            }
+            displayName(); // displayName 실행문맥 생성. 내부 정의 호이스팅.
+        }
+    </script>
+</body>
+
+</html>
