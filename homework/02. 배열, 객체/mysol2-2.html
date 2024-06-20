@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [];
+
+        for (let i = 0; i < 7; i++) {
+            let n = Math.floor(Math.random() * 45) + 1;
+            let dup = false;
+            for (let j = 0; j < i; j++) {
+                if (arr[j] === n) {
+                    dup = true;
+                    break;
+                }
+            }
+            if (dup) {
+                i--;
+            } else {
+                arr.push(n);
+            }
+        }
+
+        document.write("이번주 로또 당첨 번호는 : ")
+
+        for (let i = 0; i < 6; i++) {
+            document.write(`${arr[i]}, `);
+        }
+
+        document.write(`보너스 번호 : ${arr[6]} <br>`);
+
+        let arr2 = [];
+
+        for (let i = 0; i < 6; i++) {
+            let n = parseInt(window.prompt("1~45까지의 숫자를 입력하세요."));
+            let dup = false;
+            for (let j = 0; j < i; j++) {
+                if (arr2[j] === n) {
+                    dup = true;
+                    break;
+                }
+            }
+            if (dup) {
+                i--;
+            } else {
+                arr2.push(n);
+            }
+        }
+
+        document.write("구입한 로또 번호 : ")
+
+        for (let i = 0; i < 6; i++) {
+            document.write(`${arr2[i]}, `);
+        }
+
+        document.write(`<br>`)
+
+        let hazure = 0;
+
+        for (let i = 0; i < 6; i++) {
+            let dup = false;
+            for (let j = 0; j < 6; j++) {
+                if (arr2[i] === arr[j]) {
+                    dup = true;
+                    break;
+                }
+            }
+            if (!dup) {
+                hazure++;
+            }
+        }
+
+        let nii = false;
+
+        for (let i = 0; i < 6; i++) {
+            if (arr2[i] === arr[6]) {
+                nii = true;
+                break;
+            }
+        }
+
+
+        if (hazure === 0) {
+            document.write("1등!");
+        } else if (hazure === 1 && nii) {
+            document.write("2등!");
+        } else if (hazure === 1 && !nii) {
+            document.write("3등!");
+        } else if (hazure === 2) {
+            document.write("4등!");
+        } else if (hazure === 3) {
+            document.write("5등!");
+        } else {
+            document.write("꽝!");
+        }
+
+
+    </script>
+</body>
+
+</html>

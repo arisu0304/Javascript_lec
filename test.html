@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 구문</title>
+    <style>
+        .container {
+            width: 1000px;
+            height: 1000px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: start;
+        }
+
+        .box {
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            border: 1px rgb(29, 29, 29) solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+    <script>
+        const container = document.getElementsByClassName("container")[0];
+
+        let strDiv = "";
+
+        for (let i = 0; i < 1000; i++) {
+
+            let r = Math.floor(Math.random() * 256); // 0부터 255 사이의 랜덤한 값
+            let g = Math.floor(Math.random() * 256); // 0부터 255 사이의 랜덤한 값
+            let b = Math.floor(Math.random() * 256); // 0부터 255 사이의 랜덤한 값
+
+            strDiv += `<div class="box" style="background: rgb(${r}, ${g}, ${b});"></div>`;
+        }
+        container.innerHTML = strDiv;
+    </script>
+</body>
+
+</html>
